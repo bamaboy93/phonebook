@@ -1,58 +1,61 @@
-import { Component } from "react";
+import React from "react";
+import { useFormik } from "formik";
+import * as yup from "yup";
+import Button from "@material-ui/core/Button";
+import TextField from "@material-ui/core/TextField";
 
-export default class ContactsForm extends Component {
-  state = {
-    name: "",
-    number: "",
-  };
+const validationSchema = yup.object({
+  name: yup
+    .string("Enter Name")
 
-  handleChange = (e) => {
-    const { name, value } = e.currentTarget;
-    this.setState({
-      [name]: value,
-    });
-  };
+    .required("Name is required"),
+  number: yup
+    .number("Enter Number")
 
-  handleSubmit = (e) => {
-    e.preventDefault();
-    this.props.onSubmit(this.state.name, this.state.number);
-    this.setState({ name: "", number: "" });
-  };
+    .required("Number is required"),
+});
 
-  render() {
-    const { name, number } = this.state;
-    return (
-      <>
-        <form onSubmit={this.handleSubmit}>
-          <label>
-            Name
-            <input
-              type="text"
-              name="name"
-              value={name}
-              onChange={this.handleChange}
-              pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-              title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-              required
-            />
-          </label>
+const ContactForm = ({ onSubmit }) => {
+  const formik = useFormik({
+    initialValues: {
+      name: "",
+      number: "",
+    },
+    validationSchema: validationSchema,
+    onSubmit: (values) => {
+      onSubmit(values);
+    },
+  });
 
-          <label>
-            Number
-            <input
-              type="tel"
-              name="number"
-              value={number}
-              onChange={this.handleChange}
-              pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-              title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-              required
-            />
-          </label>
+  return (
+    <div>
+      <form onSubmit={formik.handleSubmit}>
+        <TextField
+          fullWidth
+          id="name"
+          name="name"
+          label="Name"
+          value={formik.values.name}
+          onChange={formik.handleChange}
+          error={formik.touched.name && Boolean(formik.errors.name)}
+          helperText={formik.touched.name && formik.errors.name}
+        />
+        <TextField
+          fullWidth
+          id="number"
+          name="number"
+          label="Number"
+          value={formik.values.number}
+          onChange={formik.handleChange}
+          error={formik.touched.number && Boolean(formik.errors.number)}
+          helperText={formik.touched.number && formik.errors.number}
+        />
+        <Button color="primary" variant="contained" fullWidth type="submit">
+          Submit
+        </Button>
+      </form>
+    </div>
+  );
+};
 
-          <button type="submit">Add Contact</button>
-        </form>
-      </>
-    );
-  }
-}
+export default ContactForm;

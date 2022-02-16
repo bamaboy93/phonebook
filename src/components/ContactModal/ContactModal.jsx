@@ -1,34 +1,32 @@
-import { Component } from "react";
+import { useEffect } from "react";
 import { createPortal } from "react-dom";
 import s from "./ContactModal.module.scss";
 
 const modalRoot = document.querySelector("#modal-root");
+const ContactModal = ({ onClose, children }) => {
+  useEffect(() => {
+    window.addEventListener("keydown", handleKeyDown);
 
-export default class ContactModal extends Component {
-  componentDidMount() {
-    window.addEventListener("keydown", this.handleKeyDown);
-  }
-  componentWillUnmount() {
-    window.removeEventListener("keydown", this.handleKeyDown);
-  }
-
-  handleKeyDown = (e) => {
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  });
+  const handleKeyDown = (e) => {
     if (e.code === "Escape") {
-      this.props.onClose();
+      onClose();
     }
   };
+  const handleBackdropClick = (e) => {
+    if (e.currentTarget === e.target) {
+      onClose();
+    }
+  };
+  return createPortal(
+    <div className={s.Modal__backdrop} onClick={handleBackdropClick}>
+      <div className={s.Modal__content}>{children}</div>
+    </div>,
+    modalRoot
+  );
+};
 
-  handleBackdropClick = (event) => {
-    if (event.currentTarget === event.target) {
-      this.props.onClose();
-    }
-  };
-  render() {
-    return createPortal(
-      <div className={s.Modal__backdrop} onClick={this.handleBackdropClick}>
-        <div className={s.Modal__content}>{this.props.children}</div>
-      </div>,
-      modalRoot
-    );
-  }
-}
+export default ContactModal;
