@@ -1,7 +1,13 @@
-import s from "./Container.module.scss";
+import styled from "styled-components";
 
-const Container = ({ children }) => (
-  <div className={s.Container}>{children}</div>
-);
+const Wrapper = styled.div`
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+`;
+
+const Container = ({ children }) => <Wrapper>{children}</Wrapper>;
 
 export default Container;

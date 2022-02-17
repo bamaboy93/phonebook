@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { ToastContainer, toast } from "react-toastify";
+import { Routes, Route } from "react-router-dom";
 
 import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
@@ -11,8 +12,12 @@ import ContactsForm from "./components/ContactsForm/ContactsForm";
 import Filter from "./components/Filter";
 import ContactModal from "./components/ContactModal";
 import IconButton from "./components/IconButton";
+import AppBar from "./components/AppBar";
 import { ReactComponent as IconAdd } from "./images/icons/add.svg";
 import useLocalStorage from "./hooks/useLocalStorage";
+
+import HomeView from "./views/HomeView";
+import ContactsView from "./views/ContactsView";
 
 const App = () => {
   const [contacts, setContacts] = useLocalStorage("contacts", "");
@@ -54,6 +59,12 @@ const App = () => {
   };
   return (
     <Container>
+      <AppBar />
+      <Routes>
+        <Route path="/" element={<HomeView />} />
+      </Routes>
+      <AppBar />
+
       <IconButton onClick={toggleModal} aria-label="Add contact">
         <IconAdd width="40" height="40" fill="white" />
       </IconButton>

@@ -1,10 +1,12 @@
 import IconButton from "../IconButton";
 import PropTypes from "prop-types";
+import { GlobalStyle } from "../GlobalStyle";
 
 import { ReactComponent as DeleteButton } from "../../images/icons/delete.svg";
 
 const Contact = ({ name, number, onDelete }) => (
   <div>
+    <GlobalStyle />
     <p>
       {name} :<a href="tel:{number}">{number}</a>
     </p>
