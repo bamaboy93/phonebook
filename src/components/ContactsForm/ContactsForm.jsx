@@ -1,6 +1,7 @@
 import React from "react";
 import { useFormik } from "formik";
 import * as yup from "yup";
+import { toast } from "react-toastify";
 
 import Button from "@material-ui/core/Button";
 import Box from "@material-ui/core/Box";
@@ -9,8 +10,11 @@ import InputAdornment from "@mui/material/InputAdornment";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import PhoneIcon from "@mui/icons-material/Phone";
 import { styled } from "@mui/material/styles";
-
 import { purple } from "@mui/material/colors";
+
+import { useSelector, useDispatch } from "react-redux";
+import operations from "../../redux/contacts/contacts-operations";
+import contactsSelectors from "../../redux/contacts/contacts-selectors";
 
 const validationSchema = yup.object({
   name: yup
@@ -36,7 +40,20 @@ const ColorButton = styled(Button)(({ theme }) => ({
   },
 }));
 
-const ContactForm = ({ onSubmit }) => {
+const ContactForm = () => {
+  const dispatch = useDispatch();
+  const contacts = useSelector(contactsSelectors.getContacts);
+
+  const onSubmit = ({ name, number }) => {
+    if (!name || !number) return;
+    const contactName = contacts.map((contact) => contact.name.toLowerCase());
+    if (contactName.includes(name.toLowerCase())) {
+      toast.warn(`${name} is already in contacts`);
+      return;
+    }
+    dispatch(operations.addContact(name, number));
+  };
+
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -57,7 +74,6 @@ const ContactForm = ({ onSubmit }) => {
           name="name"
           label="Name"
           margin="normal"
-          defaultValue="Normal"
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">
@@ -76,7 +92,6 @@ const ContactForm = ({ onSubmit }) => {
           name="number"
           label="Number"
           margin="normal"
-          defaultValue="Normal"
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">
