@@ -1,12 +1,15 @@
 import { ToastContainer } from "react-toastify";
 import { Routes, Route } from "react-router-dom";
 import { lazy, Suspense } from "react";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
 
 import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
 
 import Loader from "./components/Loader";
 import AppBar from "./components/AppBar";
+import operations from "./redux/auth/auth-operations";
 
 const LoginView = lazy(() =>
   import("./views/LoginView" /* webpackChunkName: "LoginPage" */)
@@ -21,6 +24,12 @@ const ContactsView = lazy(() =>
 );
 
 const App = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(operations.refreshCurrentUser());
+  }, [dispatch]);
+
   return (
     <>
       <AppBar />

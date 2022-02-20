@@ -17,10 +17,10 @@ const getFilteredContacts = createSelector(
   }
 );
 
-const todosSelectors = {
+const contactsSelectors = {
   getLoading,
   getContacts,
   getFilter,
   getFilteredContacts,
 };
-export default todosSelectors;
+export default contactsSelectors;

@@ -3,24 +3,23 @@ import { ReactComponent as DeleteButton } from "../../images/icons/delete.svg";
 import { GlobalStyle } from "../GlobalStyle";
 import operations from "../../redux/contacts/contacts-operations";
 import { useSelector, useDispatch } from "react-redux";
-import { useEffect } from "react";
 import contactsSelectors from "../../redux/contacts/contacts-selectors";
 
 const Contacts = () => {
-  const onDeleteContact = (id) => dispatch(operations.deleteContact(id));
-  const filteredContacts = useSelector(contactsSelectors.getFilteredContacts);
   const dispatch = useDispatch();
+  const contacts = useSelector(contactsSelectors.getFilteredContacts);
 
-  useEffect(() => dispatch(operations.fetchContacts()), [dispatch]);
+  const onDeleteContact = (id) => dispatch(operations.deleteContact(id));
+
   return (
     <>
       <GlobalStyle />
 
       <ul>
-        {filteredContacts.map(({ id, name, number }) => (
+        {contacts.map(({ name, phone, id }) => (
           <li key={id}>
             <p>
-              {name} :<a href="tel:{number}">{number}</a>
+              {name} :<a href="tel:{number}">{phone}</a>
             </p>
             <IconButton
               onClick={() => onDeleteContact(id)}

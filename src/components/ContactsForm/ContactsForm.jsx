@@ -61,7 +61,7 @@ const ContactForm = () => {
     },
     validationSchema: validationSchema,
     onSubmit: (values) => {
-      onSubmit(values);
+      dispatch(operations.addContact(values));
     },
   });
 

@@ -1,30 +1,31 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import Typography from "@mui/material//Typography";
 
 import Container from "../components/Container";
-import ContactForm from "../components/ContactsForm";
+import ContactForm from "../components/ContactsForm/ContactForm";
 import ContactModal from "../components/ContactModal";
 import Contacts from "../components/Contacts";
 import Filter from "../components/Filter";
 import IconButton from "../components/IconButton";
 import { ReactComponent as IconAdd } from "../images/icons/add.svg";
 
-import contactsSelectors from "../redux/contacts/contacts-selectors";
 import { contactsOperations } from "../redux/contacts";
+import contactsSelectors from "../redux/contacts/contacts-selectors";
 
-export default function ContactsView(params) {
+export default function ContactsView() {
+  // const isLoadingContacts = useSelector(contactsSelectors.getLoading);
   const dispatch = useDispatch();
-  const isLoadingContacts = useSelector(contactsSelectors.getLoading);
-
   const [showModal, setshowModal] = useState(false);
-
-  useEffect(() => dispatch(contactsOperations.fetchContacts()), [dispatch]);
 
   const toggleModal = () => {
     setshowModal(!showModal);
   };
+
+  useEffect(() => {
+    dispatch(contactsOperations.fetchContacts());
+  }, [dispatch]);
 
   return (
     <Container>
@@ -34,7 +35,7 @@ export default function ContactsView(params) {
       <IconButton onClick={toggleModal} aria-label="Add contact">
         <IconAdd width="40" height="40" fill="white" />
       </IconButton>
-      {isLoadingContacts && <h1>Загружаем...</h1>}
+      {/* {isLoadingContacts && <h1>Загружаем...</h1>} */}
       {showModal && (
         <ContactModal onClose={toggleModal}>
           <ContactForm />

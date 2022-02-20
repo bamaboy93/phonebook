@@ -1,31 +1,24 @@
 import axios from "axios";
+
 import * as actions from "./contacts-actions";
 
 axios.defaults.baseURL = "https://phonebooknodejs.herokuapp.com";
 
-const setToken = (token) => {
-  if (!axios.defaults.headers.common.Authorization)
-    axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+const fetchContacts = () => async (dispatch) => {
+  dispatch(actions.fetchContactsRequest());
+
+  try {
+    const { data } = await axios.get(`api/contacts`);
+    dispatch(actions.fetchContactsSuccess(data));
+  } catch (error) {
+    dispatch(actions.fetchContactsError(error));
+  }
 };
 
-const fetchContacts =
-  () =>
-  async ({ token, page }, dispatch) => {
-    dispatch(actions.fetchContactsRequest());
-
-    try {
-      setToken(token);
-      const { data } = await axios.get(`api/contacts?limit=5&page=${page}`);
-      dispatch(actions.fetchContactsSuccess(data));
-    } catch (error) {
-      dispatch(actions.fetchContactsError(error));
-    }
-  };
-
-const addContact = (name, number) => async (dispatch) => {
+const addContact = (name, phone) => async (dispatch) => {
   const contact = {
     name,
-    number,
+    phone,
   };
 
   dispatch(actions.addContactRequest());
@@ -38,12 +31,12 @@ const addContact = (name, number) => async (dispatch) => {
   }
 };
 
-const deleteContact = (id) => async (dispatch) => {
+const deleteContact = (contactId) => async (dispatch) => {
   dispatch(actions.deleteContactRequest());
 
   try {
-    await axios.delete(`api/contacts/${id}`);
-    dispatch(actions.deleteContactSuccess(id));
+    await axios.delete(`api/contacts/${contactId}`);
+    dispatch(actions.deleteContactSuccess(contactId));
   } catch (error) {
     dispatch(actions.deleteContactError(error));
   }

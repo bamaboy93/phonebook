@@ -3,8 +3,11 @@ import { createReducer } from "@reduxjs/toolkit";
 import * as actions from "./contacts-actions";
 
 const items = createReducer([], {
-  [actions.fetchContactsSuccess]: (_, action) => action.payload,
-  [actions.addContactSuccess]: (state, action) => [...state, action.payload],
+  [actions.fetchContactsSuccess]: (_, action) => action.payload.data.contacts,
+  [actions.addContactSuccess]: (state, action) => [
+    ...state,
+    action.payload.data.contact,
+  ],
   [actions.deleteContactSuccess]: (state, action) =>
     state.filter(({ id }) => id !== action.payload),
 });
