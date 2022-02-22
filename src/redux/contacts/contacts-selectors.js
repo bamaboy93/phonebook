@@ -6,6 +6,12 @@ const getContacts = (state) => state.contacts.items;
 
 const getFilter = (state) => state.contacts.filter;
 
+const getPage = (state) => state.contacts.page;
+
+const getTotalPages = (state) => state.contacts.totalPages;
+
+const getTotalContacts = (state) => state.contacts.totalDocs;
+
 const getFilteredContacts = createSelector(
   [getContacts, getFilter],
   (contacts, filter) => {
@@ -17,10 +23,18 @@ const getFilteredContacts = createSelector(
   }
 );
 
+// const getTotalContacts = (state) => {
+//   const contacts = getContacts(state);
+//   return contacts.length;
+// };
+
 const contactsSelectors = {
   getLoading,
   getContacts,
   getFilter,
   getFilteredContacts,
+  getTotalContacts,
+  getPage,
+  getTotalPages,
 };
 export default contactsSelectors;

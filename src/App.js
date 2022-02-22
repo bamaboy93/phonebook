@@ -2,14 +2,18 @@ import { ToastContainer } from "react-toastify";
 import { Routes, Route } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
+import { LinearProgress } from "@mui/material";
 import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
 
-import Loader from "./components/Loader";
 import AppBar from "./components/AppBar";
+import PublicRoute from "./components/Routes/PublicRoute/PublicRoute";
+import PrivateRoute from "./components/Routes/PrivateRoute/PrivateRoute";
+
 import operations from "./redux/auth/auth-operations";
+import authSelectors from "./redux/auth/auth-selectors";
 
 const LoginView = lazy(() =>
   import("./views/LoginView" /* webpackChunkName: "LoginPage" */)
@@ -25,6 +29,7 @@ const ContactsView = lazy(() =>
 
 const App = () => {
   const dispatch = useDispatch();
+  const isLoading = useSelector(authSelectors.isLoading);
 
   useEffect(() => {
     dispatch(operations.refreshCurrentUser());
@@ -32,15 +37,53 @@ const App = () => {
 
   return (
     <>
-      <AppBar />
-      <Suspense fallback={<Loader />}>
-        <Routes>
-          <Route path="/contacts/*" element={<ContactsView />} />
-          <Route path="/register/*" element={<RegisterView />} />
-          <Route path="/login/*" element={<LoginView />} />
-        </Routes>
-      </Suspense>
-      <ToastContainer position="top-center" autoClose={2000} />
+      {isLoading ? (
+        <LinearProgress />
+      ) : (
+        <>
+          <AppBar />
+
+          <Suspense fallback={null}>
+            <Routes>
+              <Route
+                path="/"
+                element={
+                  <PublicRoute restricted>
+                    <LoginView />
+                  </PublicRoute>
+                }
+              />
+              <Route
+                path="/register"
+                element={
+                  <PublicRoute restricted>
+                    <RegisterView />
+                  </PublicRoute>
+                }
+              />
+
+              <Route
+                path="/login"
+                element={
+                  <PublicRoute restricted>
+                    <LoginView />
+                  </PublicRoute>
+                }
+              />
+              <Route
+                path="/contacts/*"
+                element={
+                  <PrivateRoute>
+                    <ContactsView />
+                  </PrivateRoute>
+                }
+              />
+            </Routes>
+          </Suspense>
+
+          <ToastContainer position="top-center" autoClose={2000} />
+        </>
+      )}
     </>
   );
 };

@@ -1,0 +1,73 @@
+@import "modern-normalize/modern-normalize.css";
+@import "./colors.scss";
+@import "./utils/variables";
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  position: relative;
+  min-height: 100vh;
+  box-sizing: border-box;
+
+  margin: 0;
+  padding: 0;
+
+  font-family: $main-font;
+  font-style: normal;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  background-image: url(../images/Dashboard/background.png);
+  background-color: #fcd2c5;
+
+  @media screen and (min-width: 768px) {
+    background: url("../images/Dashboard/Ellipse2_tablet.png") no-repeat 100% 0,
+      url("../images/Dashboard/Ellipse1_tablet.png") no-repeat 0 100%;
+    background-color: #f5fffa;
+  }
+  @media screen and (min-width: 1280px) {
+    background: url("../images/Dashboard/Ellipse2.png") no-repeat 100% 0,
+      url("../images/Dashboard/Ellipse1.png") no-repeat 0 100%;
+    background-color: #f5fffa;
+  }
+}
+
+main {
+  width: 100%;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0 !important;
+  border: 0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden;
+}

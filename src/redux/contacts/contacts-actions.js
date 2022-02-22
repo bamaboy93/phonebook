@@ -21,3 +21,9 @@ export const deleteContactSuccess = createAction(
 export const deleteContactError = createAction("contacts/deleteContactError");
 
 export const changeFilter = createAction("contacts/changeFilter");
+
+export const setTotalContacts = createAction("contacts/setTotalContacts");
+
+export const changePage = createAction("contacts/changePage");
+
+export const getTotalPages = createAction("contacts/getTotalPages");

@@ -1,5 +1,7 @@
 import { useEffect } from "react";
 import { createPortal } from "react-dom";
+import PropTypes from "prop-types";
+
 import s from "./ContactModal.module.scss";
 
 const modalRoot = document.querySelector("#modal-root");
@@ -27,6 +29,10 @@ const ContactModal = ({ onClose, children }) => {
     </div>,
     modalRoot
   );
+};
+
+ContactModal.propTypes = {
+  onClose: PropTypes.func.isRequired,
 };
 
 export default ContactModal;

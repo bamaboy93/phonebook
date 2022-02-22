@@ -1,19 +1,20 @@
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import operations from "../../redux/contacts/contacts-operations";
-import contactsSelectors from "../../redux/contacts/contacts-selectors";
+import PropTypes from "prop-types";
 
-import * as React from "react";
 import Box from "@mui/material/Box";
 import TextField from "@material-ui/core/TextField";
 import IconButton from "@mui/material/IconButton";
 import AddBoxIcon from "@mui/icons-material/AddBox";
 
-const Form = () => {
+import contactsOperations from "../../redux/contacts/contacts-operations";
+import contactsSelectors from "../../redux/contacts/contacts-selectors";
+
+const Form = ({ onClose }) => {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const dispatch = useDispatch();
-  const contacts = useSelector(contactsSelectors.getContacts);
+  const contacts = useSelector(contactsSelectors.getFilteredContacts);
 
   const inputChange = (e) => {
     const { name, value } = e.currentTarget;
@@ -44,7 +45,9 @@ const Form = () => {
       return;
     }
 
-    dispatch(operations.addContact(name, phone));
+    dispatch(contactsOperations.addContact(name, phone));
+
+    onClose();
   };
 
   return (
@@ -83,6 +86,10 @@ const Form = () => {
       </IconButton>
     </Box>
   );
+};
+
+Form.propTypes = {
+  onClose: PropTypes.func.isRequired,
 };
 
 export default Form;

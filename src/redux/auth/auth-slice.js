@@ -34,7 +34,6 @@ const authSlice = createSlice({
     [authOperations.signUp.fulfilled](state, action) {
       state.isLoggedIn = true;
       state.isLoading = false;
-      console.log(action.payload.data.name);
     },
     [authOperations.logIn.pending](state, action) {
       state.isLoading = true;
@@ -106,6 +105,7 @@ const authSlice = createSlice({
     },
     [authOperations.refreshCurrentUser.fulfilled](state, action) {
       state.user = action.payload.data;
+      state.avatarUrl = action.payload.data.avatar;
       state.isLoggedIn = true;
       state.isLoading = false;
     },
