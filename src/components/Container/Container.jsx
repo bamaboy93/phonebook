@@ -4,12 +4,12 @@ const Wrapper = styled.div`
   margin-left: auto;
   margin-right: auto;
 
-  @media (max-width: 480px) {
-    max-width: 480px;
-    padding: 0px 20px;
-  }
+  
+    
+    
+  
 
-  @media (min-width: (480px + 1px)) and (max-width: 767px) {
+  @media  (max-width: 767px) {
     width: 480px;
     padding: 0px 30px;
   }

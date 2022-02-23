@@ -25,7 +25,12 @@ const ContactModal = ({ onClose, children }) => {
   };
   return createPortal(
     <div className={s.Modal__backdrop} onClick={handleBackdropClick}>
-      <div className={s.Modal__content}>{children}</div>
+      <div className={s.Modal__content}>
+        {children}
+        <button className={s.Modal__button} type="button" onClick={onClose}>
+          &#10006;
+        </button>
+      </div>
     </div>,
     modalRoot
   );

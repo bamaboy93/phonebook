@@ -10,13 +10,14 @@ const Button = styled.button`
   border-radius: 50%;
 
   font: inherit;
-  background-color: #fcd2c5;
+  background-color: #97cba9;
   cursor: pointer;
 
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  transition: all 250ms ease;
+  transition: all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  box-shadow: 0px 11px 20px 6px rgba(47, 231, 201, 0.5);
   &:hover,
   &:focus {
     transform: scale(1.1);

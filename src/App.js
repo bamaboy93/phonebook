@@ -24,7 +24,9 @@ const RegisterView = lazy(() =>
 );
 
 const ContactsView = lazy(() =>
-  import("./views/ContactsView" /* webpackChunkName: "ContactsPage" */)
+  import(
+    "./views/ContactsView/ContactsView" /* webpackChunkName: "ContactsPage" */
+  )
 );
 
 const App = () => {

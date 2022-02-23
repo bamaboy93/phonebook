@@ -1,32 +1,44 @@
 import { useSelector } from "react-redux";
 import styled from "styled-components";
 
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import Typography from "@mui/material/Typography";
+
+import Quotes from "../Quotes/Quotes";
 import { contactsSelectors } from "../../redux/contacts";
+
+const TotalWrapper = styled.div`
+  margin-top: 180px;
+  @media (min-width: 1280px) {
+    display: flex;
+    margin-top: 0;
+    margin-bottom: 70px;
+  }
+`;
 
 const SideWrapper = styled.div`
   display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  padding-top: 40px;
-  @media screen and (min-width: 768px) and (max-width: 1279px) {
-    .sidebar {
-      display: flex;
-      flex-direction: column;
-      flex-wrap: wrap;
-      max-height: 204px;
-      padding-top: 40px;
-    }
-  }
+  justify-content: space-between;
 
-  @media screen and (max-width: 767px) {
-    .sidebar {
-      display: flex;
-      flex-direction: column;
-      flex-wrap: wrap;
-      max-height: 204px;
-      padding-top: 13px;
-      padding-right: 0;
-    }
+  @media (min-width: 1280px) {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-top: 80px;
+    max-height: 300px;
+  }
+`;
+
+const CardWrapper = styled.div`
+  margin-top: 20px;
+  margin-bottom: 50px;
+
+  @media (min-width: 1280px) {
+    display: flex;
+    justify-content: center;
+    margin-top: 0;
+    margin-bottom: 0;
   }
 `;
 
@@ -34,10 +46,23 @@ export default function Sidebar() {
   const total = useSelector(contactsSelectors.getTotalContacts);
   return (
     <SideWrapper>
-      <p>
-        <span>Total Contacts:</span>
-        <span>{total}</span>
-      </p>
+      <TotalWrapper>
+        <Card sx={{ height: 50, width: 150 }}>
+          <CardContent>
+            <Typography
+              sx={{ fontSize: 14 }}
+              color="text.secondary"
+              gutterBottom
+            >
+              Total Contacts: {total}
+            </Typography>
+          </CardContent>
+        </Card>
+      </TotalWrapper>
+
+      <CardWrapper>
+        <Quotes />
+      </CardWrapper>
     </SideWrapper>
   );
 }

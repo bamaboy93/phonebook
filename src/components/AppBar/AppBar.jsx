@@ -20,23 +20,24 @@ const Header = styled.div`
   padding-top: 15px;
   padding-bottom: 15px;
 
-  @media (max-width: 480px) {
-    max-width: 768px;
-    padding-left: 20px;
-    padding-right: 20px;
+  @media  (max-width: 767px) {
+    width: 480px;
+    padding-left:30px;
+    padding-right:30px;
   }
 
   @media (min-width: 768px) and (max-width: 1279px) {
     width: 768px;
-    padding-left: 40px;
-    padding-right: 40px;
+    padding-left:40px;
+    padding-right:40px;
   }
 
-  @media screen and (min-width: 1280px) {
+  @media (min-width: 1280px) {
     width: 1280px;
-    padding-left: 85px;
-    padding-right: 85px;
+    padding-left:85px;
+    padding-right:85px;
   }
+}
 `;
 
 const Logo = styled.img`
