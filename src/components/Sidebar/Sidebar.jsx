@@ -8,6 +8,14 @@ import Typography from "@mui/material/Typography";
 import Quotes from "../Quotes/Quotes";
 import { contactsSelectors } from "../../redux/contacts";
 
+const Total = styled.span`
+  font-style: bold;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: #7f00ff;
+`;
+
 const TotalWrapper = styled.div`
   margin-top: 180px;
   @media (min-width: 1280px) {
@@ -54,7 +62,7 @@ export default function Sidebar() {
               color="text.secondary"
               gutterBottom
             >
-              Total Contacts: {total}
+              Total Contacts: <Total>{total}</Total>
             </Typography>
           </CardContent>
         </Card>

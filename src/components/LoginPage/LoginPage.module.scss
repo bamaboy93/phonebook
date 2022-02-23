@@ -1,0 +1,45 @@
+.loginMain {
+  width: 100vw;
+  height: 100vh;
+  background-image: url("../../images/Views/logInBg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.loginContainer {
+  display: flex;
+  flex-direction: column;
+  box-sizing: content-box;
+  width: 100%;
+  padding: 40px 20px 50px;
+  box-shadow: 5px 10px 20px rgba(170, 178, 197, 0.4);
+  width: 260px;
+  height: 435px;
+  border-radius: 30px;
+  background-color: #fff;
+}
+
+.googleButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 122px;
+  height: 40px;
+  background: #f6f7fb;
+  border-radius: 26px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  color: #000000;
+  align-self: center;
+  margin-bottom: 30px;
+}
+
+.text {
+  font-size: 10px;
+  font-weight: 12px;
+  letter-spacing: 0.04em;
+  color: #52555f;
+  margin-bottom: 24px;
+  text-align: center;
+}

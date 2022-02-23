@@ -133,3 +133,11 @@
 .lose {
   color: $text-lose;
 }
+
+.telLink {
+  color: grey;
+  &:focus,
+  &:hover {
+    color: #7f00ff;
+  }
+}

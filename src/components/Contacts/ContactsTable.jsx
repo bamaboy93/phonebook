@@ -67,7 +67,9 @@ const ContactsTable = () => {
 
               <td>{name}</td>
               <td>
-                <a href="tel:{number}">{phone}</a>
+                <a className={styles.telLink} href="tel:{number}">
+                  {phone}
+                </a>
               </td>
               <td>
                 <DeleteBtn onClick={() => onDeleteContact(id)} type="button">

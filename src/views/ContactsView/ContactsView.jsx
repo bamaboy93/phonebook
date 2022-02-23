@@ -19,22 +19,24 @@ export default function ContactsView() {
   };
 
   return (
-    <Container>
-      <div className={styles.dashboard}>
-        <AddContactBtn onClick={toggleModal} aria-label="Add contact">
-          <IconAdd width="40" height="40" fill="white" />
-        </AddContactBtn>
+    <div className={styles.contactsMain}>
+      <Container>
+        <div className={styles.dashboard}>
+          <AddContactBtn onClick={toggleModal} aria-label="Add contact">
+            <IconAdd width="40" height="40" fill="white" />
+          </AddContactBtn>
 
-        {showModal && (
-          <ContactModal onClose={toggleModal}>
-            <ContactForm onClose={toggleModal} />
-          </ContactModal>
-        )}
+          {showModal && (
+            <ContactModal onClose={toggleModal}>
+              <ContactForm onClose={toggleModal} />
+            </ContactModal>
+          )}
 
-        <Sidebar />
+          <Sidebar />
 
-        <ContactsTable onToggleModal={toggleModal} />
-      </div>
-    </Container>
+          <ContactsTable onToggleModal={toggleModal} />
+        </div>
+      </Container>
+    </div>
   );
 }

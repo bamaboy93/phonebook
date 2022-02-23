@@ -43,8 +43,6 @@ const App = () => {
         <LinearProgress />
       ) : (
         <>
-          <AppBar />
-
           <Suspense fallback={null}>
             <Routes>
               <Route
@@ -76,6 +74,7 @@ const App = () => {
                 path="/contacts/*"
                 element={
                   <PrivateRoute>
+                    <AppBar />
                     <ContactsView />
                   </PrivateRoute>
                 }
