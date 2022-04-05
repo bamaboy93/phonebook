@@ -76,7 +76,13 @@
 }
 
 .table tr td:first-child {
-  padding-left: 60px;
+  padding-left: 30px;
+  @media (min-width: $max-mobile) {
+    padding-left: 100px;
+  }
+  @media (min-width: $min-desktop) {
+    padding-left: 150px;
+  }
 }
 
 .table tr td:nth-child(2) {
@@ -118,7 +124,7 @@
 }
 
 .tr {
-  height: 8vh;
+  height: 10vh;
 }
 
 .tr:not(:last-child) {
@@ -136,6 +142,7 @@
 
 .telLink {
   color: grey;
+  transition: 0.4s;
   &:focus,
   &:hover {
     color: #7f00ff;

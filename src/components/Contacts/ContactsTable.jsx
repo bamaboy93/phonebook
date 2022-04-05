@@ -28,7 +28,7 @@ const DeleteBtn = styled.button`
   }
 `;
 const ContactLogo = styled.img`
-  width: 40px;
+  width: 50px;
   border-radius: 50%;
 `;
 

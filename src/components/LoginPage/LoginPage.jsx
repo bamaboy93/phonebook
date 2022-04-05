@@ -5,10 +5,11 @@ import { Formik } from "formik";
 import * as yup from "yup";
 import { BsEye, BsEyeSlash } from "react-icons/bs";
 
+import googleIcon from "../../images/icons/google.svg";
 import Container from "../Container";
 import authOperations from "../../redux/auth/auth-operations";
 
-import "./LoginPage.css";
+import styles from "./LoginPage.module.scss";
 
 export default function LoginPage() {
   const dispatch = useDispatch();
@@ -30,7 +31,8 @@ export default function LoginPage() {
   });
 
   const handleSubmit = (e) => {
-    // e.preventDefault();
+    e.preventDefault();
+
     const email = e.email;
     const password = e.password;
     dispatch(authOperations.logIn({ email, password }));
@@ -55,17 +57,16 @@ export default function LoginPage() {
         handleBlur,
         handleSubmit,
       }) => (
-        <div class="loginMain">
+        <div classNameName={styles.loginMain}>
           <Container>
-            <div class="container">
-              <h1 class="title">Phonebook</h1>
-              <div class="screen">
-                <div class="screen__content">
-                  <form class="login" autoComplete="off">
-                    <div class="login_field">
-                      <i class="login__icon fas fa-user"></i>
+            <div className={styles.container}>
+              <h1 className={styles.title}>Phonebook</h1>
+              <div className={styles.screen}>
+                <div className={styles.screenContent}>
+                  <form className={styles.login} autoComplete="off">
+                    <div className={styles.loginField}>
                       <input
-                        class="login__input"
+                        className={styles.loginInput}
                         type={`text`}
                         name={`email`}
                         onChange={handleChange}
@@ -75,13 +76,12 @@ export default function LoginPage() {
                         placeholder="E-mail"
                       />
                       {touched.email && errors.email && (
-                        <p class="loginError">{errors.email}</p>
+                        <p className={styles.loginError}>{errors.email}</p>
                       )}
                     </div>
-                    <div class="login_field password">
-                      <i class="login__icon fas fa-lock"></i>
+                    <div className={styles.loginField}>
                       <input
-                        class="login__input"
+                        className={styles.loginInput}
                         type={isPasswordHidden ? "password" : "text"}
                         name={`password`}
                         onChange={handleChange}
@@ -92,7 +92,7 @@ export default function LoginPage() {
                         autoComplete="off"
                       />
 
-                      <button class="loginIconEye" onClick={onCLick}>
+                      <button className={styles.loginIconEye} onClick={onCLick}>
                         {isPasswordHidden ? <BsEye /> : <BsEyeSlash />}
                       </button>
 
@@ -101,28 +101,36 @@ export default function LoginPage() {
                       )}
                     </div>
 
-                    <button class="button login__submit" onClick={handleSubmit}>
-                      <span class="button__text">Log In </span>
-                      <i class="button__icon fas fa-chevron-right"></i>
+                    <button
+                      className={styles.loginSubmit}
+                      onClick={handleSubmit}
+                    >
+                      <span className={styles.buttonText}>Sign Up </span>
+                      <i className={styles.buttonIcon}></i>
                     </button>
-                    <div class="signUpButton">
+                    <div className={styles.signUpButton}>
                       <NavLink to="/register">Sign Up</NavLink>
                     </div>
                   </form>
-                  <div class="social-login">
-                    <h3>log in via</h3>
-                    <div class="social-icons">
-                      <button class="logButton google-button" type="button">
+                  <div className={styles.socialLogin}>
+                    <h3>Sign In with</h3>
+                    <div className={styles.socialIcons}>
+                      <a href="" className={styles.googleButton}>
+                        <img
+                          src={googleIcon}
+                          alt="google icon"
+                          className={styles.icon}
+                        ></img>
                         Google
-                      </button>
+                      </a>
                     </div>
                   </div>
                 </div>
-                <div class="screen__background">
-                  <span class="screen__background__shape screen__background__shape4"></span>
-                  <span class="screen__background__shape screen__background__shape3"></span>
-                  <span class="screen__background__shape screen__background__shape2"></span>
-                  <span class="screen__background__shape screen__background__shape1"></span>
+                <div className={styles.screenBackground}>
+                  <span className={styles.screenBackgroundShape4}></span>
+                  <span className={styles.screenBackgroundShape3}></span>
+                  <span className={styles.screenBackgroundShape2}></span>
+                  <span className={styles.screenBackgroundShape1}></span>
                 </div>
               </div>
             </div>

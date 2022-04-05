@@ -28,13 +28,13 @@ html {
   margin-top: 80px;
 }
 
-.screen__content {
+.screenContent {
   z-index: 1;
   position: relative;
   height: 100%;
 }
 
-.screen__background {
+.screenBackground {
   position: absolute;
   top: 0;
   left: 0;
@@ -45,12 +45,13 @@ html {
   clip-path: inset(0 0 0 0);
 }
 
-.screen__background__shape {
+.screenBackgroundShape {
   transform: rotate(45deg);
   position: absolute;
 }
-
-.screen__background__shape1 {
+.screenBackgroundShape1 {
+  transform: rotate(45deg);
+  position: absolute;
   height: 520px;
   width: 520px;
   background: #fff;
@@ -59,7 +60,9 @@ html {
   border-radius: 0 72px 0 0;
 }
 
-.screen__background__shape2 {
+.screenBackgroundShape2 {
+  transform: rotate(45deg);
+  position: absolute;
   height: 220px;
   width: 220px;
   background: #6c63ac;
@@ -68,7 +71,9 @@ html {
   border-radius: 32px;
 }
 
-.screen__background__shape3 {
+.screenBackgroundShape3 {
+  transform: rotate(45deg);
+  position: absolute;
   height: 540px;
   width: 190px;
   background: linear-gradient(270deg, #5d54a4, #6a679e);
@@ -77,7 +82,9 @@ html {
   border-radius: 32px;
 }
 
-.screen__background__shape4 {
+.screenBackgroundShape4 {
+  transform: rotate(45deg);
+  position: absolute;
   height: 400px;
   width: 200px;
   background: #7e7bb9;
@@ -89,34 +96,36 @@ html {
 .login {
   width: 320px;
   padding: 30px;
-  padding-top: 156px;
+  padding-top: 150px;
 }
 
-.login__field {
+.loginFiield {
   padding: 20px 0px;
   position: relative;
 }
 
-.login__icon {
+.loginIcon {
   position: absolute;
   top: 30px;
   color: #7875b5;
 }
 
-.login__input {
+.loginInput {
   border: none;
   border-bottom: 1px solid #d1d1d4;
   background: none;
   padding: 10px;
-  padding-left: 24px;
-  font-weight: 700;
+
+  font-size: 14px;
+  font-weight: 400;
+  opacity: 0.7;
   width: 100%;
   transition: 0.2s;
 }
 
 .loginIconEye {
   position: absolute;
-  top: 210px;
+  top: 235px;
   left: 255px;
   display: inline-block;
   border: none;
@@ -124,14 +133,14 @@ html {
   background-color: transparent;
 }
 
-.login__input:active,
-.login__input:focus,
-.login__input:hover {
+.loginInput:active,
+.loginInput:focus,
+.loginInput:hover {
   outline: none;
   border-bottom-color: #6a679e;
 }
 
-.login__submit {
+.loginSubmit {
   background: #fff;
   font-size: 14px;
   margin-top: 30px;
@@ -146,17 +155,17 @@ html {
   color: #4c489d;
   box-shadow: 0px 2px 2px #5c5696;
   cursor: pointer;
-  transition: 0.2s;
+  transition: 0.3s;
 }
 
-.login__submit:active,
-.login__submit:focus,
-.login__submit:hover {
+.loginSubmit:active,
+.loginSubmit:focus,
+.loginSubmit:hover {
   border-color: #6a679e;
   outline: none;
 }
 
-.button__icon {
+.buttonIcon {
   font-size: 24px;
   margin-left: auto;
   color: #7875b5;
@@ -167,7 +176,7 @@ html {
   margin-top: 40px;
 }
 
-.social-login {
+.socialLogin {
   position: absolute;
   height: 140px;
   width: 160px;
@@ -177,19 +186,28 @@ html {
   color: #fff;
 }
 
-.social-icons {
+.socialIcons {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 10px;
 }
 
-.social-login__icon {
-  padding: 20px 10px;
-  color: #fff;
-  text-decoration: none;
-  text-shadow: 0px 0px 8px #7875b5;
+.googleButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 122px;
+  height: 30px;
+  background: #f6f7fb;
+  border-radius: 26px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  color: #000000;
+  align-self: center;
+  margin-bottom: 30px;
 }
-
-.social-login__icon:hover {
-  transform: scale(1.5);
+.icon {
+  margin-right: 10px;
 }
