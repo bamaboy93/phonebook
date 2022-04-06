@@ -21,7 +21,7 @@ const TotalWrapper = styled.div`
   @media (min-width: 1280px) {
     display: flex;
     margin-top: 0;
-    margin-bottom: 70px;
+    margin-bottom: 60px;
   }
 `;
 
@@ -55,7 +55,7 @@ export default function Sidebar() {
   return (
     <SideWrapper>
       <TotalWrapper>
-        <Card sx={{ height: 50, width: 150 }}>
+        <Card sx={{ height: 60, width: 150 }}>
           <CardContent>
             <Typography
               sx={{ fontSize: 14 }}

@@ -96,18 +96,21 @@ const authSlice = createSlice({
     },
     [authOperations.refreshCurrentUser.pending](state, _) {
       state.isLoading = true;
+      state.isRefreshCurrentUser = true;
     },
     [authOperations.refreshCurrentUser.rejected](state, _) {
       state.isLoggedIn = false;
       state.user = { name: null, email: null };
       state.token = null;
       state.isLoading = false;
+      state.isRefreshCurrentUser = false;
     },
     [authOperations.refreshCurrentUser.fulfilled](state, action) {
       state.user = action.payload.data;
       state.avatarUrl = action.payload.data.avatar;
       state.isLoggedIn = true;
       state.isLoading = false;
+      state.isRefreshCurrentUser = false;
     },
 
     [avatarOperations.setAvatar.pending](state, action) {

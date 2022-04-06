@@ -32,6 +32,7 @@ const ContactsView = lazy(() =>
 const App = () => {
   const dispatch = useDispatch();
   const isLoading = useSelector(authSelectors.isLoading);
+  const isRefreshCurrentUser = useSelector(authSelectors.getIsRefreshCurrent);
 
   useEffect(() => {
     dispatch(operations.refreshCurrentUser());
@@ -42,48 +43,50 @@ const App = () => {
       {isLoading ? (
         <LinearProgress />
       ) : (
-        <>
-          <Suspense fallback={null}>
-            <Routes>
-              <Route
-                path="/"
-                element={
-                  <PublicRoute restricted>
-                    <LoginView />
-                  </PublicRoute>
-                }
-              />
-              <Route
-                path="/register"
-                element={
-                  <PublicRoute restricted>
-                    <RegisterView />
-                  </PublicRoute>
-                }
-              />
+        !isRefreshCurrentUser && (
+          <>
+            <Suspense fallback={null}>
+              <Routes>
+                <Route
+                  path="/"
+                  element={
+                    <PublicRoute restricted>
+                      <LoginView />
+                    </PublicRoute>
+                  }
+                />
+                <Route
+                  path="/register"
+                  element={
+                    <PublicRoute restricted>
+                      <RegisterView />
+                    </PublicRoute>
+                  }
+                />
 
-              <Route
-                path="/login"
-                element={
-                  <PublicRoute restricted>
-                    <LoginView />
-                  </PublicRoute>
-                }
-              />
-              <Route
-                path="/contacts/*"
-                element={
-                  <PrivateRoute>
-                    <AppBar />
-                    <ContactsView />
-                  </PrivateRoute>
-                }
-              />
-            </Routes>
-          </Suspense>
+                <Route
+                  path="/login"
+                  element={
+                    <PublicRoute restricted>
+                      <LoginView />
+                    </PublicRoute>
+                  }
+                />
+                <Route
+                  path="/contacts/*"
+                  element={
+                    <PrivateRoute>
+                      <AppBar />
+                      <ContactsView />
+                    </PrivateRoute>
+                  }
+                />
+              </Routes>
+            </Suspense>
 
-          <ToastContainer position="top-center" autoClose={2000} />
-        </>
+            <ToastContainer position="top-center" autoClose={2000} />
+          </>
+        )
       )}
     </>
   );

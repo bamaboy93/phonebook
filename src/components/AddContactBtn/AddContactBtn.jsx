@@ -8,7 +8,7 @@ const Button = styled.button`
   padding: 10px;
   border: none;
   border-radius: 50%;
-
+  position: fixed;
   font: inherit;
   background-color: #97cba9;
   cursor: pointer;
@@ -17,21 +17,22 @@ const Button = styled.button`
   align-items: center;
   justify-content: center;
   transition: all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  box-shadow: 0px 11px 20px 6px rgba(47, 231, 201, 0.5);
+
   &:hover,
   &:focus {
     transform: scale(1.1);
-    box-shadow: "0px 5px 5px 0px #000";
   }
-  position: fixed;
+
   @media (max-width: 767px) {
-    right: 20px;
-    bottom: 30px;
+    position: relative;
+    left: 50px;
+    top: 100px;
   }
 
   @media (min-width: 768px) and (max-width: 1279px) {
-    right: 40px;
-    bottom: 40px;
+    position: relative;
+    left: 100px;
+    top: 100px;
   }
 
   @media (min-width: 1280px) {

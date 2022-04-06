@@ -17,6 +17,9 @@ const Header = styled.div`
   justify-content: space-between;
   margin: 0 auto;
 
+  background: white;
+  
+
   padding-top: 15px;
   padding-bottom: 15px;
 
