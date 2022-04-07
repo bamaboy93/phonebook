@@ -50,6 +50,7 @@ const authSlice = createSlice({
       state.user = {
         name: action.payload.data.name,
         email: action.payload.data.email,
+        id: action.payload.data.id,
       };
       state.token = action.payload.data.token;
       state.avatarUrl = action.payload.data.avatar;

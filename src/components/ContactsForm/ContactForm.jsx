@@ -2,13 +2,10 @@ import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import PropTypes from "prop-types";
 
-import Box from "@mui/material/Box";
-import TextField from "@material-ui/core/TextField";
-import IconButton from "@mui/material/IconButton";
-import AddBoxIcon from "@mui/icons-material/AddBox";
-
 import contactsOperations from "../../redux/contacts/contacts-operations";
 import contactsSelectors from "../../redux/contacts/contacts-selectors";
+
+import s from "./ContactForm.module.scss";
 
 const Form = ({ onClose }) => {
   const [name, setName] = useState("");
@@ -51,40 +48,42 @@ const Form = ({ onClose }) => {
   };
 
   return (
-    <Box
-      component="form"
-      sx={{
-        "& > :not(style)": { m: 1 },
-      }}
-      noValidate
-      onSubmit={formSubmit}
-    >
-      <TextField
-        id="outlined-required"
-        label="Name"
-        type="text"
-        onChange={inputChange}
-        value={name}
-        name="name"
-        pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-        title="Имя может состоять только из букв, апострофа, тире и пробелов. Например Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan и т. п."
-      />
-
-      <TextField
-        id="outlined-required"
-        label="Tel"
-        type="text"
-        value={phone}
-        onChange={inputChange}
-        name="phone"
-        pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-        title="Номер телефона должен состоять цифр и может содержать пробелы, тире, круглые скобки и может начинаться с +"
-      />
-
-      <IconButton color="primary" aria-label="add " type="submit" size="large">
-        <AddBoxIcon />
-      </IconButton>
-    </Box>
+    <div className={s.userModal}>
+      <h2 className={s.modalTitle}>Add Contact</h2>
+      <form onSubmit={formSubmit}>
+        <div className={s.modalBox}>
+          <input
+            className={s.input}
+            type="text"
+            onChange={inputChange}
+            value={name}
+            name="name"
+            pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+            title="Имя может состоять только из букв, апострофа, тире и пробелов. Например Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan и т. п."
+          />
+          <label className={s.label}>Name</label>
+        </div>
+        <div className={s.modalBox}>
+          <input
+            className={s.input}
+            type="text"
+            value={phone}
+            onChange={inputChange}
+            name="phone"
+            pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+            title="Номер телефона должен состоять цифр и может содержать пробелы, тире, круглые скобки и может начинаться с +"
+          />
+          <label className={s.label}>Telephone</label>
+        </div>
+        <button className={s.formBtn} type="submit">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          Add
+        </button>
+      </form>
+    </div>
   );
 };
 
