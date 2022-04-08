@@ -34,6 +34,7 @@ const ContactLogo = styled.img`
 
 const ContactsTable = () => {
   const dispatch = useDispatch();
+
   const contacts = useSelector(contactsSelectors.getFilteredContacts);
   const totalPages = useSelector(contactsSelectors.getTotalPages);
   const page = useSelector(contactsSelectors.getPage);
