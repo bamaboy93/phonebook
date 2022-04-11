@@ -6,7 +6,7 @@ import * as yup from "yup";
 import { BsEye, BsEyeSlash } from "react-icons/bs";
 
 import googleIcon from "../../images/icons/google.svg";
-import Container from "../Container";
+
 import authOperations from "../../redux/auth/auth-operations";
 
 import styles from "./RegisterPage.module.scss";
@@ -31,11 +31,10 @@ export default function LoginPage() {
   });
 
   const handleSubmit = (e) => {
-    e.preventDefault();
     const name = e.name;
     const email = e.email;
     const password = e.password;
-    dispatch(authOperations.logIn({ name, email, password }));
+    dispatch(authOperations.signUp({ name, email, password }));
   };
 
   return (

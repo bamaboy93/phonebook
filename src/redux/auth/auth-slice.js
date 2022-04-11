@@ -32,6 +32,12 @@ const authSlice = createSlice({
       state.error = true;
     },
     [authOperations.signUp.fulfilled](state, action) {
+      state.user = {
+        name: action.payload.data.name,
+        email: action.payload.data.email,
+        password: action.payload.data.password,
+      };
+      state.token = action.payload.data.token;
       state.isLoggedIn = true;
       state.isLoading = false;
     },
@@ -47,11 +53,7 @@ const authSlice = createSlice({
       state.error = true;
     },
     [authOperations.logIn.fulfilled](state, action) {
-      state.user = {
-        name: action.payload.data.name,
-        email: action.payload.data.email,
-        id: action.payload.data.id,
-      };
+      state.user = action.payload.data;
       state.token = action.payload.data.token;
       state.avatarUrl = action.payload.data.avatar;
       state.isLoggedIn = true;
@@ -69,10 +71,7 @@ const authSlice = createSlice({
       state.error = true;
     },
     [authOperations.logInByGoogle.fulfilled](state, action) {
-      state.user = {
-        name: action.payload.data.name,
-        email: action.payload.data.email,
-      };
+      state.user = action.payload.data.user;
       state.token = action.payload.data.token;
       state.avatarUrl = action.payload.data.avatar;
       state.isLoggedIn = true;
