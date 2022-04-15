@@ -32,13 +32,9 @@ const authSlice = createSlice({
       state.error = true;
     },
     [authOperations.signUp.fulfilled](state, action) {
-      state.user = {
-        name: action.payload.data.name,
-        email: action.payload.data.email,
-        password: action.payload.data.password,
-      };
-      state.token = action.payload.data.token;
-      state.isLoggedIn = true;
+      state.user = action.payload.data;
+      state.token = action.payload.token;
+      state.isLoggedIn = false;
       state.isLoading = false;
     },
     [authOperations.logIn.pending](state, action) {
@@ -54,7 +50,7 @@ const authSlice = createSlice({
     },
     [authOperations.logIn.fulfilled](state, action) {
       state.user = action.payload.data;
-      state.token = action.payload.data.token;
+      state.token = action.payload.token;
       state.avatarUrl = action.payload.data.avatar;
       state.isLoggedIn = true;
       state.isLoading = false;

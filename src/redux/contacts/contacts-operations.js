@@ -8,9 +8,7 @@ const fetchContacts = (page) => async (dispatch) => {
   dispatch(actions.fetchContactsRequest());
 
   try {
-    const { data } = await axios.get(
-      `api/contacts?limit=5&page=${page}&sortByDesc=date%7CcreatedAt`
-    );
+    const { data } = await axios.get(`api/contacts?limit=5&page=${page}`);
     dispatch(actions.fetchContactsSuccess(data.data));
   } catch (error) {
     dispatch(actions.fetchContactsError(error));

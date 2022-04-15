@@ -73,7 +73,7 @@ const App = () => {
                   }
                 />
                 <Route
-                  path="/contacts/*"
+                  path="/contacts"
                   element={
                     <PrivateRoute>
                       <AppBar />
