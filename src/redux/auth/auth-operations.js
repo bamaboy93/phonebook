@@ -1,6 +1,6 @@
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { toast } from "react-toastify";
+import toast from "react-hot-toast";
 
 axios.defaults.baseURL = "https://phonebooknodejs.herokuapp.com";
 
@@ -21,7 +21,7 @@ const signUp = createAsyncThunk(
       token.set(data.token);
 
       toast.success(
-        "Thank you for signing up! We have sent you an email with a link to verify your account."
+        "Account verification message sent on your e-mail. Verify account and signIn."
       );
       return data;
     } catch ({ response }) {
