@@ -46,12 +46,12 @@ export default function LoginPage() {
               color: "#000000",
             },
 
-            duration: 3000,
+            duration: 5000,
           },
         }}
         containerStyle={{
-          top: 115,
-          left: 260,
+          top: 0,
+          left: 0,
         }}
       />
       <Formik

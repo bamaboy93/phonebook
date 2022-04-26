@@ -55,6 +55,7 @@ const App = () => {
                     </PublicRoute>
                   }
                 />
+
                 <Route
                   path="/register"
                   element={

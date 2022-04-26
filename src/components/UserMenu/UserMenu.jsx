@@ -46,11 +46,15 @@ const Avatar = styled.img`
 export default function UserMenu() {
   const dispatch = useDispatch();
   const name = useSelector(authSelectors.getUsername);
-  // const avatar = useSelector(authSelectors.getAvatar);
+  const avatar = useSelector(authSelectors.getAvatar);
 
   return (
     <Menu>
-      <Avatar src={defaultAvatar} alt="user avatar" />
+      {avatar ? (
+        <Avatar src={avatar} alt="user avatar" />
+      ) : (
+        <Avatar src={defaultAvatar} alt="user avatar" />
+      )}
       <UserName>{name}</UserName>
       <ExitButton
         type="button"
