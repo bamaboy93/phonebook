@@ -23,11 +23,6 @@ const getFilteredContacts = createSelector(
   }
 );
 
-// const getTotalContacts = (state) => {
-//   const contacts = getContacts(state);
-//   return contacts.length;
-// };
-
 const contactsSelectors = {
   getLoading,
   getContacts,

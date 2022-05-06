@@ -28,6 +28,7 @@ const ExitButton = styled.button`
 `;
 const UserName = styled.p`
   font-weight: 400;
+  margin-right: 20px;
   font-size: 18px;
   color: grey;
   @media (max-width: 767px) {
@@ -62,7 +63,7 @@ export default function UserMenu() {
         aria-label="Logout"
         fill="grey"
       >
-        <LogoutButton width="28" height="28" fill="grey" />
+        <LogoutButton width="22" height="22" fill="grey" />
       </ExitButton>
     </Menu>
   );
