@@ -129,7 +129,10 @@ export default function LoginPage() {
                   <div className={styles.socialLogin}>
                     <h3>Sign In with</h3>
                     <div className={styles.socialIcons}>
-                      <a href="" className={styles.googleButton}>
+                      <a
+                        href="https://www.google.com.ua/"
+                        className={styles.googleButton}
+                      >
                         <img
                           src={googleIcon}
                           alt="google icon"

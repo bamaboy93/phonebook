@@ -30,9 +30,9 @@ const Logo = styled.img`
 
 const UserAppBar = () => {
   const dispatch = useDispatch();
-  const name = useSelector(authSelectors.getUsername);
+  // const name = useSelector(authSelectors.getUsername);
   const avatar = useSelector(authSelectors.getAvatar);
-  const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
+  // const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
 
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
