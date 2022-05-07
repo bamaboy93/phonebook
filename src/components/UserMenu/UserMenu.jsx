@@ -63,7 +63,7 @@ export default function UserMenu() {
         aria-label="Logout"
         fill="grey"
       >
-        <LogoutButton width="22" height="22" fill="grey" />
+        <LogoutButton width="25" height="25" fill="grey" />
       </ExitButton>
     </Menu>
   );

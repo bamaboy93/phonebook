@@ -1,12 +1,15 @@
 import { useSelector } from "react-redux";
+
+import DatePicker from "sassy-datepicker";
 import styled from "styled-components";
 
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 
-import Quotes from "../Quotes/Quotes";
 import { contactsSelectors } from "../../redux/contacts";
+
+import "./Sidebar.css";
 
 const Total = styled.span`
   font-style: bold;
@@ -17,7 +20,15 @@ const Total = styled.span`
 `;
 
 const TotalWrapper = styled.div`
-  margin-top: 180px;
+  @media (max-width: 768px) {
+    margin-bottom: 50px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    border-radius: 0px 0px 4px 4px;
+  }
+  @media (min-width: 768px) {
+    margin-top: 20px;
+    margin-left: 30px;
+  }
   @media (min-width: 1280px) {
     display: flex;
     margin-top: 0;
@@ -34,13 +45,17 @@ const SideWrapper = styled.div`
     flex-direction: column;
     flex-wrap: wrap;
     margin-top: 80px;
-    max-height: 300px;
+    max-height: 400px;
   }
 `;
 
 const CardWrapper = styled.div`
   margin-top: 20px;
   margin-bottom: 50px;
+
+  @media (max-width: 767px) {
+    display: none;
+  }
 
   @media (min-width: 1280px) {
     display: flex;
@@ -52,6 +67,9 @@ const CardWrapper = styled.div`
 
 export default function Sidebar() {
   const total = useSelector(contactsSelectors.getTotalContacts);
+  const onChange = (date) => {
+    console.log(date.toString());
+  };
   return (
     <SideWrapper>
       <TotalWrapper>
@@ -69,7 +87,7 @@ export default function Sidebar() {
       </TotalWrapper>
 
       <CardWrapper>
-        <Quotes />
+        <DatePicker onChange={onChange} />
       </CardWrapper>
     </SideWrapper>
   );

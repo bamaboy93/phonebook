@@ -50,7 +50,7 @@ const ContactsTable = () => {
     <div className={styles.container}>
       <table className={styles.table}>
         <thead className={styles.thead}>
-          <tr className={styles.tr}>
+          <tr className={styles.tabler}>
             <th>
               <Filter />
             </th>

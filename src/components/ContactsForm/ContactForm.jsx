@@ -57,11 +57,16 @@ const Form = ({ onClose }) => {
             type="text"
             onChange={inputChange}
             value={name}
+            placeholder="Name"
             name="name"
+            id="name"
+            required
             pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
             title="Имя может состоять только из букв, апострофа, тире и пробелов. Например Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan и т. п."
           />
-          <label className={s.label}>Name</label>
+          <label for="name" className={s.label}>
+            Name
+          </label>
         </div>
         <div className={s.modalBox}>
           <input
@@ -69,11 +74,16 @@ const Form = ({ onClose }) => {
             type="text"
             value={phone}
             onChange={inputChange}
+            placeholder="Phone"
+            id="phone"
+            required
             name="phone"
             pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
             title="Номер телефона должен состоять цифр и может содержать пробелы, тире, круглые скобки и может начинаться с +"
           />
-          <label className={s.label}>Telephone</label>
+          <label for="name" className={s.label}>
+            Telephone
+          </label>
         </div>
         <button className={s.formBtn} type="submit">
           <span></span>
