@@ -1,0 +1,115 @@
+@import "../../styles/colors.scss";
+@import "../../styles/utils/variables.scss";
+
+.uploadWrapper {
+  display: flex;
+  flex-direction: column;
+  max-width: 280px;
+  justify-content: space-between;
+  padding: 20px;
+  margin-top: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+  flex-wrap: wrap;
+  border-radius: 10px;
+  border: 3px solid #ffab9d;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  align-items: center;
+  justify-content: center;
+}
+.uploadInput {
+  width: 0;
+  height: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.infoWrapper,
+.placeholder {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 0;
+}
+
+.infoWrapper {
+  overflow: hidden;
+
+  @media screen and (max-width: $max-mobile) {
+    width: 200px;
+  }
+
+  @media screen and (min-width: $min-tablet) {
+    width: 240px;
+  }
+}
+
+.placeholder,
+.info {
+  font-family: $main-font;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #ffab9d;
+}
+
+.btn {
+  position: relative;
+  margin: auto;
+  padding: 11px 22px;
+  transition: all 0.2s ease;
+  background-color: white;
+  border-radius: 28px;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    border-radius: 28px;
+    background: rgba(#ffab9d, 0.5);
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    width: 46px;
+    height: 46px;
+    transition: all 0.7s ease-in-out;
+  }
+}
+.btnText {
+  position: relative;
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 900;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  vertical-align: middle;
+  color: #ffab9d;
+  text-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+}
+
+.btn svg {
+  position: relative;
+  top: 0;
+  margin-left: 10px;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke: #ffab9d;
+  stroke-width: 2;
+  transform: translateX(-5px);
+  transition: all 0.9s ease-in-out;
+}
+.btn:hover:before {
+  width: 100%;
+  background: #ffab9d;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+.btn:hover .btnText {
+  color: white;
+}
+.btn:hover svg {
+  transform: translateX(0);
+  stroke: white;
+}
+.btn:active {
+  transform: scale(0.96);
+}

@@ -1,0 +1,81 @@
+@import "../../styles/colors.scss";
+@import "../../styles/utils/variables.scss";
+
+.modalBackdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 1;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  @media screen and (max-height: 675px) {
+    overflow: scroll;
+  }
+}
+
+.modalContent {
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  transform: translate(-50%, 0);
+
+  min-height: 530px;
+  max-width: 360px;
+  width: 100%;
+
+  padding: 100px 20px 30px;
+  background-color: #fff;
+  border-radius: 20px;
+  border: 2px solid #ffab9d;
+
+  box-shadow: rgba(255, 116, 92, 0.19) 0px 14px 28px,
+    rgba(251, 83, 61, 0.23) 0px 10px 10px;
+  background: linear-gradient(90deg, #5d54a4, #7c78b8);
+}
+
+.avatarBlock {
+  position: absolute;
+  top: 5%;
+  left: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  border: 5px solid #ffab9d;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  border-radius: 50%;
+  overflow: hidden;
+
+  @media screen and (min-width: $tablet) {
+    top: 5%;
+    left: 33%;
+    width: 120px;
+  }
+}
+
+.userAvatar {
+  width: 100%;
+}
+
+.userName {
+  font-weight: 700;
+  line-height: 1.5;
+  text-align: center;
+  color: white;
+  text-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+
+  overflow: hidden;
+
+  @media screen and (max-width: $max-mobile) {
+    margin-top: 40px;
+    font-size: 18px;
+  }
+
+  @media screen and (min-width: $min-tablet) {
+    margin-top: 90px;
+    font-size: 22px;
+  }
+}

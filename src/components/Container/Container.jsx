@@ -3,12 +3,7 @@ import styled from "styled-components";
 const Wrapper = styled.div`
   margin-left: auto;
   margin-right: auto;
-
   
-    
-    
-  
-
   @media  (max-width: 767px) {
     width: 480px;
     padding: 0px 30px;

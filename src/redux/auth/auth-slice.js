@@ -121,18 +121,6 @@ const authSlice = createSlice({
       state.isLoading = false;
       state.error = true;
     },
-    // [userOperations.changeUserName.pending](state, action) {
-    //   state.isLoading = true;
-    //   state.error = false;
-    // },
-    // [userOperations.changeUserName.fulfilled](state, action) {
-    //   state.isLoading = false;
-    //   state.user = { ...state.user, name: action.payload };
-    // },
-    // [userOperations.changeUserName.rejected](state, action) {
-    //   state.isLoading = false;
-    //   state.error = true;
-    // },
   },
 });
 

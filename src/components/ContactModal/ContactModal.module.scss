@@ -19,9 +19,11 @@
   width: 100%;
   padding: 12px;
   background-color: #fff;
-  border-radius: 10px;
-  border: 1px solid rgba(0, 0, 0, 0.3);
-  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+  border-radius: 20px;
+  border: 2px solid #ffab9d;
+  box-shadow: rgba(255, 116, 92, 0.19) 0px 14px 28px,
+    rgba(251, 83, 61, 0.23) 0px 10px 10px;
+
   background: linear-gradient(90deg, #5d54a4, #7c78b8);
 }
 
@@ -43,6 +45,7 @@
   &:focus,
   &:active {
     outline: none;
-    color: rebeccapurple;
+    border: 1px solid #ffab9d;
+    color: #ffab9d;
   }
 }

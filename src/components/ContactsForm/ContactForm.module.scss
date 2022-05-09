@@ -4,7 +4,7 @@
 .modalTitle {
   margin: 0 0 30px;
   padding: 0;
-  color: #fff;
+  color: #ffab9d;
 }
 .modalBox {
   position: relative;
@@ -48,10 +48,10 @@
       display: block;
       transition: 0.2s;
       font-size: 12px;
-      color: #ffdab9;
+      color: #ffab9d;
     }
     padding-bottom: 6px;
-    border-bottom: 1px solid #ffdab9;
+    border-bottom: 1px solid #ffab9d;
   }
   /* reset input */
   .input {
@@ -68,7 +68,7 @@
   border-color: transparent;
   background: transparent;
   padding: 10px 20px;
-  color: #ffdab9;
+  color: #ffab9d;
   font-size: 16px;
   text-decoration: none;
 
@@ -76,12 +76,13 @@
   transition: 0.5s;
   margin-top: 100px;
   letter-spacing: 2px;
-  &:hover {
-    background: #ffdab9;
+  &:hover,
+  &:focus {
+    background: #ffab9d;
     color: #fff;
     border-radius: 5px;
-    box-shadow: 0 0 5px #ffdab9, 0 0 25px #ffdab9, 0 0 50px #ffdab9,
-      0 0 100px #ffdab9;
+    box-shadow: 0 0 5px #ffab9d, 0 0 25px #ffab9d, 0 0 50px #ffab9d,
+      0 0 100px #ffab9d;
   }
 }
 
@@ -94,7 +95,7 @@
   left: -100%;
   width: 100%;
   height: 2px;
-  background: linear-gradient(90deg, transparent, #ffdab9);
+  background: linear-gradient(90deg, transparent, #ffab9d);
   animation: btn-anim1 1s linear infinite;
 }
 
@@ -113,7 +114,7 @@
   right: 0;
   width: 2px;
   height: 100%;
-  background: linear-gradient(180deg, transparent, #ffdab9);
+  background: linear-gradient(180deg, transparent, #ffab9d);
   animation: btn-anim2 1s linear infinite;
   animation-delay: 0.25s;
 }
@@ -133,7 +134,7 @@
   right: -100%;
   width: 100%;
   height: 2px;
-  background: linear-gradient(270deg, transparent, #ffdab9);
+  background: linear-gradient(270deg, transparent, #ffab9d);
   animation: btn-anim3 1s linear infinite;
   animation-delay: 0.5s;
 }
@@ -153,7 +154,7 @@
   left: 0;
   width: 2px;
   height: 100%;
-  background: linear-gradient(360deg, transparent, #ffdab9);
+  background: linear-gradient(360deg, transparent, #ffab9d);
   animation: btn-anim4 1s linear infinite;
   animation-delay: 0.75s;
 }
