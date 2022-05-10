@@ -51,7 +51,7 @@ const AvatarUploader = ({ onClosePopup }) => {
 
   return (
     <div className={styles.uploadWrapper}>
-      <a className={styles.btn} href="/#" onClick={onHiddenInputClick}>
+      <a className={styles.btn} href="#" onClick={onHiddenInputClick}>
         <span className={styles.btnText}>Choose file</span>
         <svg width="13px" height="10px" viewBox="0 0 13 10">
           <path d="M1,5 L11,5"></path>
@@ -82,7 +82,7 @@ const AvatarUploader = ({ onClosePopup }) => {
           )}
         </>
       )}
-      <a className={styles.btn} href="/#" onClick={onFileUpload}>
+      <a className={styles.btn} href="#" onClick={onFileUpload}>
         <span className={styles.btnText}>Upload</span>
         <svg width="13px" height="10px" viewBox="0 0 13 10">
           <path d="M1,5 L11,5"></path>
