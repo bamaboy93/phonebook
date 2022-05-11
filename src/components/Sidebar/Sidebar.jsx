@@ -18,14 +18,14 @@ export default function Sidebar() {
   return (
     <div className={s.sideWrapper}>
       <div className={s.totalWrapper}>
-        <Card sx={{ height: 60, width: 150 }}>
+        <Card sx={{ height: 60, width: 120 }}>
           <CardContent>
             <Typography
               sx={{ fontSize: 14 }}
               color="text.secondary"
               gutterBottom
             >
-              Total Contacts: <span className={s.total}>{total}</span>
+              Contacts: <span className={s.total}>{total}</span>
             </Typography>
           </CardContent>
         </Card>

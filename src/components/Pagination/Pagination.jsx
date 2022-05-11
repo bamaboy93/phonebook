@@ -6,6 +6,7 @@ import * as actions from "../../redux/contacts/contacts-actions";
 const useStyles = makeStyles((theme) => ({
   root: {
     marginTop: "20px",
+    marginBottom: "20px",
     "& > *": {
       // marginTop: theme.spacing(2),
       minWidth: "20px",

@@ -1,0 +1,113 @@
+@import "../../../styles/colors.scss";
+@import "../../../styles/utils/variables";
+
+.container {
+  &::-webkit-scrollbar {
+    height: 100%;
+    width: 5px;
+    background-color: transparent;
+  }
+  &::-webkit-scrollbar-track-piece:corner-present {
+    margin-top: 12px;
+  }
+  &::-webkit-scrollbar-track-piece:start {
+    background: transparent;
+    margin-top: 22px;
+    overflow: hidden;
+  }
+
+  &::-webkit-scrollbar-track-piece:end {
+    background: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: $text-passive-toggle;
+  }
+  &::-webkit-scrollbar-track {
+    border-radius: 20px;
+    background: transparent;
+  }
+}
+
+.table {
+  width: 100%;
+}
+.table tr th {
+  padding-left: 20px;
+}
+
+.tr {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 10vh;
+}
+
+.table tr td:first-child {
+  margin-left: 30px;
+}
+
+.table tr td:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.thead {
+  position: sticky;
+  top: 0;
+  font-weight: 700;
+  color: grey;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  border-radius: 0px 0px 4px 4px;
+}
+.tabler {
+  height: 6vh;
+}
+
+.tr:not(:last-child) {
+  border-bottom: 1px solid $border-table;
+  box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.6);
+}
+
+.profit {
+  color: $text-profit;
+}
+
+.lose {
+  color: $text-lose;
+}
+
+.telLink {
+  color: rgb(79, 78, 78);
+  transition: 0.4s;
+  &:focus,
+  &:hover {
+    color: #7f00ff;
+  }
+}
+.contactName {
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.deleteBtn {
+  border: none;
+  outline: none;
+  cursor: pointer;
+
+  background-color: transparent;
+
+  opacity: 0.6;
+  transition: all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    opacity 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  &:hover {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+.contactLogo {
+  width: 50px;
+  border-radius: 50%;
+  border: 2px solid #ffab9d;
+}
