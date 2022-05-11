@@ -55,10 +55,12 @@
 .btn {
   position: relative;
   margin: auto;
-  padding: 11px 22px;
+  padding: 13.5px 22px;
+  border: none;
   transition: all 0.2s ease;
   background-color: white;
   border-radius: 28px;
+  cursor: pointer;
 
   &:before {
     content: "";

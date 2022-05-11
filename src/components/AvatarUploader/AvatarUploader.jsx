@@ -31,7 +31,7 @@ const AvatarUploader = ({ onClosePopup }) => {
     const type = file.type.split("/").pop().toLowerCase().trim();
 
     if (!["png", "jpg", "jpeg"].includes(type)) {
-      setError("Неверный формат файла");
+      setError("Wrong format");
       setFile(null);
       return;
     }
@@ -51,13 +51,13 @@ const AvatarUploader = ({ onClosePopup }) => {
 
   return (
     <div className={styles.uploadWrapper}>
-      <a className={styles.btn} href="#" onClick={onHiddenInputClick}>
+      <button type="button" className={styles.btn} onClick={onHiddenInputClick}>
         <span className={styles.btnText}>Choose file</span>
         <svg width="13px" height="10px" viewBox="0 0 13 10">
           <path d="M1,5 L11,5"></path>
           <polyline points="8 1 12 5 8 9"></polyline>
         </svg>
-      </a>
+      </button>
       <input
         className={styles.uploadInput}
         type="file"
@@ -82,13 +82,13 @@ const AvatarUploader = ({ onClosePopup }) => {
           )}
         </>
       )}
-      <a className={styles.btn} href="#" onClick={onFileUpload}>
+      <button type="button" className={styles.btn} onClick={onFileUpload}>
         <span className={styles.btnText}>Upload</span>
         <svg width="13px" height="10px" viewBox="0 0 13 10">
           <path d="M1,5 L11,5"></path>
           <polyline points="8 1 12 5 8 9"></polyline>
         </svg>
-      </a>
+      </button>
     </div>
   );
 };

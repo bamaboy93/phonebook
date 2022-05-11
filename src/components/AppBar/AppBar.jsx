@@ -10,6 +10,7 @@ import defaultAvatar from "../../images/icons/user.png";
 import Container from "../Container/Container";
 import UserModal from "../UserModal/UserModal";
 
+import { styled } from "@mui/material/styles";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -20,6 +21,12 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+
+const Root = styled("div")(({ theme }) => ({
+  [theme.breakpoints.down("sm")]: {
+    marginLeft: theme.spacing(8),
+  },
+}));
 
 const UserAppBar = () => {
   const dispatch = useDispatch();
@@ -53,16 +60,18 @@ const UserAppBar = () => {
 
           <Box>
             <Tooltip title="Open settings">
-              <Box sx={{ display: "flex" }}>
-                {avatar ? (
-                  <Avatar src={avatar} alt="User " />
-                ) : (
-                  <Avatar src={defaultAvatar} alt="User" />
-                )}
-                <IconButton onClick={handleOpenUserMenu} sx={{ ml: 3 }}>
-                  <KeyboardArrowDownIcon />
-                </IconButton>
-              </Box>
+              <Root>
+                <Box sx={{ display: "flex" }}>
+                  {avatar ? (
+                    <Avatar src={avatar} alt="User " />
+                  ) : (
+                    <Avatar src={defaultAvatar} alt="User" />
+                  )}
+                  <IconButton onClick={handleOpenUserMenu}>
+                    <KeyboardArrowDownIcon />
+                  </IconButton>
+                </Box>
+              </Root>
             </Tooltip>
             <Menu
               sx={{ mt: "45px" }}

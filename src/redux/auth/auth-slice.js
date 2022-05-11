@@ -115,7 +115,7 @@ const authSlice = createSlice({
     },
     [avatarOperations.setAvatar.fulfilled](state, action) {
       state.isLoading = false;
-      state.avatarUrl = action.payload;
+      state.avatarUrl = action.payload.data.avatar;
     },
     [avatarOperations.setAvatar.rejected](state, action) {
       state.isLoading = false;

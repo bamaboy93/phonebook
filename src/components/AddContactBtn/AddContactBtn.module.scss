@@ -19,9 +19,15 @@
     box-shadow: 0 0 5px #a159ea, 0 0 25px #a159ea, 0 0 50px #a159ea,
       0 0 100px #a159ea;
   }
-  @media (max-width: 767px) {
+  @media (max-width: 480px) {
     position: relative;
-    left: 340px;
+    left: 233px;
+    top: 60px;
+  }
+
+  @media (min-width: 480px) and (max-width: 768px) {
+    position: relative;
+    left: 363px;
     top: 60px;
   }
 
