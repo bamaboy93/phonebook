@@ -52,8 +52,7 @@
 .table tr th:first-child {
   padding-left: 30px;
   padding-right: 20px;
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
+
   @media (min-width: $min-desktop) {
     padding-right: 0;
   }
@@ -61,8 +60,7 @@
 
 .table tr th:last-child {
   padding-left: 20px;
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
+
   @media (min-width: $min-desktop) {
     padding-left: 0;
   }
@@ -111,7 +109,7 @@
   font-weight: 700;
   color: grey;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-  border-radius: 0px 0px 4px 4px;
+
   @media (max-width: $max-mobile) {
     background-color: transparent;
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
@@ -127,6 +125,7 @@
 }
 .tabler {
   height: 8vh;
+
   @media (max-width: $max-mobile) {
     height: 6vh;
   }

@@ -1,22 +1,21 @@
 body {
   background: url("../../images/Dashboard/Ellipse2_tablet.png") no-repeat 100% 0,
-    url("../../images/Dashboard/Ellipse1_tablet.png")  no-repeat 0 100%;
+    url("../../images/Dashboard/Ellipse1_tablet.png") no-repeat 0 100%;
   background-color: #f5fffa;
   background-attachment: fixed;
-  
 
   @media screen and (min-width: 768px) {
     background: url("../../images/Dashboard/Ellipse2_tablet.png") no-repeat 100%
         0,
       url("../../images/Dashboard/Ellipse1_tablet.png") no-repeat 0 100%;
     background-color: #f5fffa;
-    backdrop-filter: blur(50px);
+    // backdrop-filter: blur(50px);
   }
   @media screen and (min-width: 1280px) {
     background: url("../../images/Dashboard/Ellipse2.png") no-repeat 100% 0,
       url("../../images/Dashboard/Ellipse1.png") no-repeat 0 100%;
     background-color: #f5fffa;
-    backdrop-filter: blur(50px);
+    // backdrop-filter: blur(50px);
   }
 }
 

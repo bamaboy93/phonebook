@@ -25,7 +25,7 @@ const addContact = (name, phone, page) => async (dispatch) => {
 
   try {
     const { data } = await axios.post(
-      `api/contacts?limit=5&page=${page}&sortByDesc=date%7CcreatedAt`,
+      `api/contacts?limit=5&page=${page}`,
       contact
     );
     dispatch(actions.addContactSuccess(data));
@@ -38,9 +38,7 @@ const deleteContact = (contactId, page) => async (dispatch) => {
   dispatch(actions.deleteContactRequest());
 
   try {
-    await axios.delete(
-      `api/contacts/${contactId}?limit=5&page=${page}&sortByDesc=date%7CcreatedAt`
-    );
+    await axios.delete(`api/contacts/${contactId}?limit=5&page=${page}`);
     dispatch(actions.deleteContactSuccess(contactId));
   } catch (error) {
     dispatch(actions.deleteContactError(error));

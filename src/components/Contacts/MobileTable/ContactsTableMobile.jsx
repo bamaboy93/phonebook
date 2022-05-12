@@ -14,20 +14,9 @@ import Pagination from "../../Pagination";
 const ContactsTable = () => {
   const dispatch = useDispatch();
 
-  const data = useSelector(contactsSelectors.getFilteredContacts);
+  const contacts = useSelector(contactsSelectors.getFilteredContacts);
   const totalPages = useSelector(contactsSelectors.getTotalPages);
   const page = useSelector(contactsSelectors.getPage);
-
-  function sortContacts(x, y) {
-    if (x.name < y.name) {
-      return -1;
-    }
-    if (x.name > y.name) {
-      return 1;
-    }
-    return 0;
-  }
-  const contacts = data.sort(sortContacts);
 
   useEffect(() => {
     dispatch(contactsOperations.fetchContacts(page));
@@ -78,7 +67,7 @@ const ContactsTable = () => {
           ))}
         </tbody>
       </table>
-      <Pagination totalPages={totalPages} page={page} />
+      {totalPages > 1 && <Pagination totalPages={totalPages} page={page} />}
     </div>
   );
 };
