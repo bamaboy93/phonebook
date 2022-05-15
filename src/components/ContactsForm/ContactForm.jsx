@@ -12,6 +12,7 @@ const Form = ({ onClose }) => {
   const [phone, setPhone] = useState("");
   const dispatch = useDispatch();
   const contacts = useSelector(contactsSelectors.getFilteredContacts);
+  const page = useSelector(contactsSelectors.getPage);
 
   const inputChange = (e) => {
     const { name, value } = e.currentTarget;
@@ -42,7 +43,7 @@ const Form = ({ onClose }) => {
       return;
     }
 
-    dispatch(contactsOperations.addContact(name, phone));
+    dispatch(contactsOperations.addContact(name, phone, page));
 
     onClose();
   };
@@ -64,7 +65,7 @@ const Form = ({ onClose }) => {
             pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
             title="Имя может состоять только из букв, апострофа, тире и пробелов. Например Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan и т. п."
           />
-          <label for="name" className={s.label}>
+          <label htmlFor="name" className={s.label}>
             Name
           </label>
         </div>
@@ -81,7 +82,7 @@ const Form = ({ onClose }) => {
             pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
             title="Номер телефона должен состоять цифр и может содержать пробелы, тире, круглые скобки и может начинаться с +"
           />
-          <label for="name" className={s.label}>
+          <label htmlFor="name" className={s.label}>
             Telephone
           </label>
         </div>

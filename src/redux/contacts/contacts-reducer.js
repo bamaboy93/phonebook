@@ -6,7 +6,7 @@ const items = createReducer([], {
   [actions.fetchContactsSuccess]: (_, action) => [...action.payload.contacts],
   [actions.addContactSuccess]: (state, action) => [
     ...state,
-    action.payload.data.contact,
+    action.payload.contact,
   ],
   [actions.deleteContactSuccess]: (state, action) =>
     state.filter(({ id }) => id !== action.payload),

@@ -8,7 +8,9 @@ const fetchContacts = (page) => async (dispatch) => {
   dispatch(actions.fetchContactsRequest());
 
   try {
-    const { data } = await axios.get(`api/contacts?limit=5&page=${page}`);
+    const { data } = await axios.get(
+      `api/contacts?limit=5&page=${page}&sortByDesc=date%7CcreatedAt`
+    );
     dispatch(actions.fetchContactsSuccess(data.data));
   } catch (error) {
     dispatch(actions.fetchContactsError(error));
@@ -25,10 +27,10 @@ const addContact = (name, phone, page) => async (dispatch) => {
 
   try {
     const { data } = await axios.post(
-      `api/contacts?limit=5&page=${page}`,
+      `api/contacts?limit=5&page=${page}&sortByDesc=date%7CcreatedAt`,
       contact
     );
-    dispatch(actions.addContactSuccess(data));
+    dispatch(actions.addContactSuccess(data.data));
   } catch (error) {
     dispatch(actions.addContactError(error));
   }
@@ -38,7 +40,9 @@ const deleteContact = (contactId, page) => async (dispatch) => {
   dispatch(actions.deleteContactRequest());
 
   try {
-    await axios.delete(`api/contacts/${contactId}?limit=5&page=${page}`);
+    await axios.delete(
+      `api/contacts/${contactId}?limit=5&page=${page}&sortByDesc=date%7CcreatedAt`
+    );
     dispatch(actions.deleteContactSuccess(contactId));
   } catch (error) {
     dispatch(actions.deleteContactError(error));

@@ -21,7 +21,7 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-
+import { BASE_URL } from "../../assets/constants";
 const Root = styled("div")(({ theme }) => ({
   [theme.breakpoints.down("sm")]: {
     marginLeft: theme.spacing(8),
@@ -63,7 +63,7 @@ const UserAppBar = () => {
               <Root>
                 <Box sx={{ display: "flex" }}>
                   {avatar ? (
-                    <Avatar src={avatar} alt="User " />
+                    <Avatar src={`${BASE_URL}${avatar}`} alt="User " />
                   ) : (
                     <Avatar src={defaultAvatar} alt="User" />
                   )}

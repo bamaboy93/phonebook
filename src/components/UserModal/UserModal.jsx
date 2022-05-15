@@ -5,6 +5,8 @@ import authSelectors from "../../redux/auth/auth-selectors";
 import AvatarUploader from "../AvatarUploader/AvatarUploader";
 import defaultAvatar from "../../images/icons/user.png";
 
+import { BASE_URL } from "../../assets/constants";
+
 import PropTypes from "prop-types";
 
 import s from "./UserModal.module.scss";
@@ -37,7 +39,11 @@ const UserModal = ({ onClose }) => {
       <div className={s.modalContent}>
         <div className={s.avatarBlock}>
           {avatar ? (
-            <img className={s.userAvatar} src={avatar} alt={name} />
+            <img
+              className={s.userAvatar}
+              src={`${BASE_URL}${avatar}`}
+              alt={name}
+            />
           ) : (
             <img className={s.userAvatar} src={defaultAvatar} alt={name} />
           )}

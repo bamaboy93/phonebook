@@ -8,7 +8,7 @@ const setAvatar = createAsyncThunk(
   async (avatarFile, thunkAPI) => {
     try {
       const { data } = await axios.patch("api/users/avatar", avatarFile);
-      return data.avatar;
+      return data;
     } catch (error) {
       if (error.response.statusText === "Unauthorized") {
         window.location.reload();
