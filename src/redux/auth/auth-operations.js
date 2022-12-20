@@ -2,7 +2,7 @@ import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import toast from "react-hot-toast";
 
-axios.defaults.baseURL = "https://phonebooknodejs.herokuapp.com";
+axios.defaults.baseURL = "https://phonebooknodejs.herokuapp.com/";
 
 const token = {
   set(token) {
@@ -47,23 +47,26 @@ const logIn = createAsyncThunk("auth/signin", async (credentials, thunkAPI) => {
   }
 });
 
-const logInByGoogle = createAsyncThunk(
-  "auth/loginByGoogle",
-  async (extractedToken, thunkAPI) => {
+const getGoogleAuth = createAsyncThunk(
+  "auth/getGoogleAuth",
+  async (_, { rejectWithValue }) => {
     try {
-      const { data } = await axios.post("api/users/loginByGoogle", {
-        token: extractedToken,
-      });
-      token.set(data.token);
-      toast.success("Welcome to your Phonebook!");
+      const { data } = await axios.get("api/users/google");
       return data;
-    } catch ({ response }) {
-      if (response.data.message === "User email not verified yet.") {
-        toast.error(response.data.message);
-      } else {
-        toast.error(response.data.message);
-      }
-      return thunkAPI.rejectWithValue();
+    } catch (error) {
+      return rejectWithValue(error.response.data);
+    }
+  }
+);
+
+const getGoogleRedirect = createAsyncThunk(
+  "auth/getGoogleRedirect",
+  async (_, { rejectWithValue }) => {
+    try {
+      const { data } = await axios.get("api/users/google-redirect");
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.message);
     }
   }
 );
@@ -103,7 +106,8 @@ const authOperations = {
   logIn,
   logOut,
   refreshCurrentUser,
-  logInByGoogle,
+  getGoogleAuth,
+  getGoogleRedirect,
 };
 
 export default authOperations;

@@ -131,7 +131,7 @@ export default function LoginPage() {
                   <h3>Sign In with</h3>
                   <div className={styles.socialIcons}>
                     <a
-                      href="https://www.google.com.ua/"
+                      href="https://phonebooknodejs.herokuapp.com/api/users/google"
                       className={styles.googleButton}
                     >
                       <img

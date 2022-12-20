@@ -55,23 +55,30 @@ const authSlice = createSlice({
       state.isLoggedIn = true;
       state.isLoading = false;
     },
-    [authOperations.logInByGoogle.pending](state, action) {
+    [authOperations.getGoogleAuth.pending](state, action) {
       state.isLoading = true;
       state.error = false;
     },
-    [authOperations.logInByGoogle.rejected](state, action) {
+    [authOperations.getGoogleAuth.rejected](state, action) {
       state.user = { name: null, email: null };
       state.token = null;
       state.isLoggedIn = false;
       state.isLoading = false;
       state.error = true;
     },
-    [authOperations.logInByGoogle.fulfilled](state, action) {
+    [authOperations.getGoogleAuth.fulfilled](state, action) {
       state.user = action.payload.data.user;
-      state.token = action.payload.data.token;
-      state.avatarUrl = action.payload.data.avatar;
+      // state.token = action.payload.data.token;
+      // state.avatarUrl = action.payload.data.avatar;
       state.isLoggedIn = true;
       state.isLoading = false;
+    },
+    [authOperations.getGoogleRedirect.fulfilled](state, action) {
+      state.user = action.payload.data;
+      // state.token = action.payload.data.token;
+      // state.avatarUrl = action.payload.data.avatar;
+      // state.isLoggedIn = true;
+      // state.isLoading = false;
     },
     [authOperations.logOut.pending](state) {
       state.isLoading = true;

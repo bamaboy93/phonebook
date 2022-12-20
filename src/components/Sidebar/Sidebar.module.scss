@@ -5,38 +5,55 @@
 .sideWrapper {
   display: flex;
   justify-content: space-between;
+  margin-top: 40px;
+  margin-bottom: 40px;
 
   @media (min-width: 1280px) {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     margin-top: 80px;
-    max-height: 400px;
   }
 }
 
 .totalWrapper {
-  @media (max-width: 768px) {
-    margin-bottom: 50px;
+  width: 120px;
+  height: 60px;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+
+  padding: 15px;
+
+  @media (max-width: 480px) {
     margin-left: 30px;
-    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-    border-radius: 0px 0px 4px 4px;
   }
   @media (min-width: 768px) {
-    margin-top: 20px;
-    margin-left: 30px;
   }
   @media (min-width: 1280px) {
     display: flex;
     margin-top: 0;
-    margin-bottom: 60px;
+    margin-bottom: 50px;
+  }
+}
+
+.button {
+  width: 60px;
+  height: 60px;
+  @media (max-width: 480px) {
+    margin-right: 30px;
+  }
+  @media (min-width: 768px) {
+  }
+  @media (min-width: 1280px) {
+    display: flex;
+    margin-left: 20px;
+    margin-bottom: 50px;
   }
 }
 
 .dateWrapper {
-  margin-top: 20px;
-  margin-bottom: 50px;
-
   @media (max-width: 767px) {
     display: none;
   }
@@ -49,10 +66,17 @@
   }
 }
 
+.title {
+  color: grey;
+  font-size: 16px;
+}
+
 .total {
+  margin-left: 5px;
   font-style: bold;
   font-size: 18px;
   font-weight: 700;
   line-height: 1.5;
   color: #7f00ff;
+  text-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
 }

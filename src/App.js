@@ -15,6 +15,10 @@ import PrivateRoute from "./components/Routes/PrivateRoute/PrivateRoute";
 import operations from "./redux/auth/auth-operations";
 import authSelectors from "./redux/auth/auth-selectors";
 
+const VerifyView = lazy(() =>
+  import("./views/VerifyView/VerifyView" /* webpackChunkName: "VerifyPage" */)
+);
+
 const LoginView = lazy(() =>
   import("./views/LoginView" /* webpackChunkName: "LoginPage" */)
 );
@@ -61,6 +65,14 @@ const App = () => {
                   element={
                     <PublicRoute restricted>
                       <RegisterView />
+                    </PublicRoute>
+                  }
+                />
+                <Route
+                  path="/verified"
+                  element={
+                    <PublicRoute restricted>
+                      <VerifyView />
                     </PublicRoute>
                   }
                 />

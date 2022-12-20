@@ -1,6 +1,6 @@
 .formBtn {
   margin: 0;
-  position: fixed;
+  position: relative;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
@@ -18,28 +18,6 @@
     border-radius: 5px;
     box-shadow: 0 0 5px #a159ea, 0 0 25px #a159ea, 0 0 50px #a159ea,
       0 0 100px #a159ea;
-  }
-  @media (max-width: 480px) {
-    position: relative;
-    left: 65%;
-    top: 60px;
-  }
-
-  @media (min-width: 480px) and (max-width: 768px) {
-    position: relative;
-    left: 363px;
-    top: 60px;
-  }
-
-  @media (min-width: 768px) and (max-width: 1279px) {
-    position: relative;
-    left: 70px;
-    top: 240px;
-  }
-
-  @media (min-width: 1280px) {
-    left: 29%;
-    top: 20.5%;
   }
 }
 
